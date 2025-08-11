@@ -10,11 +10,13 @@ public class ProductsGet
 {
     private readonly IProductData productData;
 
+    //Constructor to inject the product data dependency
     public ProductsGet(IProductData productData)
     {
         this.productData = productData;
     }
 
+    // Function to handle HTTP GET requests for products
     [FunctionName("ProductsGet")]
     public async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "products")] HttpRequest req)
